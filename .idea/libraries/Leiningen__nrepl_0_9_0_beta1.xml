@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: nrepl:0.9.0-beta1">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/nrepl/nrepl/0.9.0-beta1/nrepl-0.9.0-beta1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
