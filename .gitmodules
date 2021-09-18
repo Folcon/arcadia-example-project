@@ -1,3 +1,6 @@
 [submodule "Assets/Arcadia"]
 	path = Assets/Arcadia
 	url = https://github.com/Folcon/Arcadia
+[submodule "Assets/tools.cursive-arcadia-repl"]
+	path = Assets/tools.cursive-arcadia-repl
+	url = https://github.com/Folcon/tools.cursive-arcadia-repl
