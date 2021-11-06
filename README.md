@@ -49,4 +49,22 @@ Uses some small adjustments to make it work, these will hopefully be merged in t
    In Unity you should see the `Main` GameObject now has two new components:
    `Arcadia State (Script)` and `Start Hook (Script)`, with the `Start Hook (Script)` containing a reference to `:log-name` pointing to `#'game-src.game.core/log-name`, which is indicating which clojure function within what namespace it's pointing to.
 10. Stopping Play within Unity should make the `Main` GameObject disappear, so you'll need to reload and invoke your code in the repl to create it again.
-11. Happy Hacking!
+11. Setup your project to be exported by adding into `Arcadia/configuration.edn`. You'll find `:export-namespaces` commented out, so uncomment it and change it to look like below:
+    ```clojure
+    :export-namespaces [game-src.game.core]
+    ```
+    You can now build your project. I would advise testing this to ensure that it builds, there's nothing worse than making a lot of changes and then realising you can't share your game! Look at the `Build Your Game` segment for instructions.
+12. Happy Hacking!
+
+
+# Build Your Game
+1. Eval the code below within the `game-src.game.core` ns __while not in play mode!__ This will hook the `main` function which is the entry point of your code to the `Main Camera`:
+   ```clojure
+   (arc/hook+ (arc/object-named "Main Camera") :start :main #'main)
+   ```
+2. Make sure your `:export-namespaces` is up-to-date, containing at least `game-src.game.core`.
+3. Delete the `Arcadia/Compiled` and `Arcadia/Export` in your project.
+4. From the Unity menu, select `Arcadia` -> `AOT Compile`
+5. From the Unity menu, select `Arcadia` -> `Prepare for Export`
+6. From the Unity menu, select `File` -> `Build And Run`
+7. You should now see at least a cube, if not your game in all of its glory!
